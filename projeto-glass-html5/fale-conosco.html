@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset = "UTF-8" />
+
+    <title> Tudo sobre Google Glass </title>
+
+    <link rel="stylesheet" href="_css/estilo.css" />
+    <link rel="stylesheet" href="_css/form.css" />
+</head>
+
+    <script language="javascript" src="_javascript/funcoes.js"> </script>
+    <script>
+        function calculototal(){
+            var quantidade = parseInt(document.getElementById('idQuantidade').value);
+            total = quantidade * 1500;
+            document.getElementById('idPreco').value = total;
+        }
+    </script>
+
+    <body>
+        <div id="interface">
+            <header id="cabecalho">
+                <hgroup>
+                    <h1> Google Glass</h1>
+                    <h2> A revolução do Google está chagando </h2>
+                </hgroup>
+
+                <img id="icone" src="_imagens/contato.png" />
+
+                <nav id="menu">
+                    <h1> Menu Principal </h1>
+                    <ul type ="circle">
+                        <li onmouseover="mudarFoto('_imagens/home.png')" onmouseout="mudarFoto('_imagens/contato.png')"><a href="index.html"> Home</a></li>
+                        <li onmouseover="mudarFoto('_imagens/especificacoes.png')" onmouseout="mudarFoto('_imagens/contato.png')"><a href="specs.html">Especificações</a></li>
+                        <li onmouseover="mudarFoto('_imagens/fotos.png')" onmouseout="mudarFoto('_imagens/contato.png'"><a href="fotos.html">Fotos</a> </li>
+                        <li onmouseover="mudarFoto('_imagens/multimidia.png')" onmouseout="mudarFoto('_imagens/contato.png'"><a href="multimidia.html">Multimídia</a> </li>
+                        <li onmouseover="mudarFoto('_imagens/contato.png')"
+                        onemouseout="mudarFoto('imagens/contato.png')"><a href="fale-conosco.html">Fale conosco</a> </li> 
+                </nav>
+            </header>
+
+            <section id="corpo-full">
+                <article id="noticia-principal">
+                    <header id="cabecalho-artigo">
+                        <hgroup>
+                            <h3>Fale Conosco > Contato</h3>
+                            <h1>Formulário de Contato</h1>
+                            <h2>Por gustavo Guanabara</h2>
+                            <h3 class="direito">Atualizado em 01/Maio/2013</h3>
+                        </hgroup>
+                    </header>
+                    <form method="post" id="idContato" action="mailto:otavionew@hotmail.com" oninput="calculototal();">
+                    <fieldset id="usuario">
+                    <legend>Identificação do Usuário</legend>
+                    <p><label for="idName">Nome</label> <input type="text" name="NameName" id="idName" size="20" maxlength="30" placeholder="Nome Completo"/></p>
+                    <p><label for="idSenha">Senha</label> <input type="password" name="namePassword" id="idPassword" size="20" maxlength="30" placeholder="Digite a senha"/></p>
+                    <p><label for="idEmail"> E-mail </label> <input type="email" name="nameEmail" id="idEmail" size="20" maxlength="30" placeholder="example@mail.com"</p>
+                        <fieldset id="sexo">
+                        <legend>Sexo</legend>
+                        <input type="radio" name="nameSexo" id="idMasculino" checked/> <label for="idMasculino"> Masculino </label> <br />
+                        <input type="radio" name="nameSexo" id="idFeminino" /> <label for="idFeminino"> Feminino </label>
+                        </fieldset>
+                    <p><label for="idDataDeNascimento"> Data de Nascimento </label> <input type="date" name="nameDataDeNascimento" id="idDataDeNascimento" /></p>
+                    </fieldset>
+
+                    <fieldset id="endereco">
+                    <legend>Endereço do Usuário</legend>
+                    <p><label for="idLogradouro"> Logradouro </label> <input type="text" name="nameLogradouro" id="idLogradouro" placeholder="Rua, Av,Trav." </p>
+                    <p><label for="idNumero">Número </label> <input type="number" name="nameNumero" id="idNumero" min="1" max="99999"> </p>
+                    <p><label for="idEstado">Estado </label> 
+                        <select name="nameEstado" id="idEstado"> 
+                            <!-- optgroup cria somente um label fazendo um grupo na pagina  -->
+                            <optgroup label="Região Sudeste">
+                            <!-- value = valor que será enviado para a action
+                            se value = null vai ser enviado o texto da option -->
+                            <option value="RJ"> Rio de Janeiro</option>
+                            <option value="SP"> Sao Paulo </option>
+                            <option> Minas Gerais </option>
+                            </optgroup>
+                            <optgroup label="Região Sul">
+                            <option> Santa Catarina </option>
+                            <option> Paraná </option>
+                            </optgroup>
+                        </select>
+                     </p>
+                    <p><label for="idCidade">Cidade </label> <input type="text" name="nameCidade" id="idCidade" maxlength="40" size="20" placeholder="Sua Cidade" list="idCidades" /> </p>
+
+                    <!-- DataList autoCompleta o texto ao começar a escrever na caixa de texto  -->
+                    <datalist id="idCidades">
+                        <option value="Rio de Janeiro"></option>
+                        <option value="Nova Iguaçu"></option>
+                        <option value="Niteroi"></option>
+                        <option value="Belford Roxo"></option>
+                    </fieldset>
+
+                    <fieldset id="mensagem">
+                    <legend>Mensagem do Usuário</legend>
+                    <p> <label for="idGrau"> Grau de Urgência: </label> Min<input type="range" name="nameGrau" id="idGrau" min="0" max="10" step="2" />Max </p>
+                    <p> <label for="idMensagem"> Mensagem: </label> <textarea name="nameMensagem" id="idMensagem" cols="45" rows="5" placeholder="Deixe aqui sua mensagem"></textarea></p>
+                    </fieldset>
+
+                    <fieldset id="pedido">
+                    <legend>Quero um Google Glass</legend>
+                    <p> <input type="checkbox" name="nameGostaria" id="idGostaria" checked>
+                        <label for="idGostaria"> Gostaria de adquirir um Google Glass quando disponível</label></p>
+                    <p> <label for="idCor"> Cor: </label> <input type="color" name="nameCor" id="idCor" value="#0000ff"/> </p>
+                    <p> <label for="idQuantidade"> Quantidade: </label> <input type="number" name="nameQuantidade" id="idQuantidade" min="1" max="10" /> </p>
+                    <p> <label for="idPreco"> Preço Total: R$ </label> <input name="namePreco" id="idPreco" placeholder="Total a pagar" readonly> </p>
+                    </fieldset>
+
+
+                    <!-- <input type="submit" value"Enviar" /> -->
+                    <input type="image" name="btnenviar" src="_imagens/botao-enviar.png" />
+                    </form>
+                </article>
+            </section>
+        </div>
+
+        <footer id="rodape">
+            <p> Copyright &copy: 2013 - by Gustavo Guanabara <br />
+                <a href="http://facebook.com/cursoemvideo" target="_blank"> Facebook</a>
+                |
+                <a href="http://twitter.com/cursoemvideo" target="_blank"> Twitter </a>
+            </p>
+        </footer>
+
+    </body>
+</html>

@@ -1,0 +1,18 @@
+@charset UTF-8;
+
+video#filme01 {
+display:block;
+position:relative;
+left:0px;
+top: 0px;
+width: 300px;
+}
+
+video#filme02 {
+
+display:block;
+position:relative;
+left: 30px;
+bottom: 10px;
+width: 450px;
+}
